@@ -1,0 +1,24 @@
+{
+  "name": "daily-diet-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tsx --no-warnings --watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.28.1",
+  "dependencies": {
+    "fastify": "^5.7.4"
+  },
+  "devDependencies": {
+    "eslint": "^10.0.0",
+    "prettier": "^3.8.1",
+    "tsx": "^4.21.0",
+    "typescript-eslint": "^8.54.0",
+    "@types/node": "^25.2.2",
+    "eslint-config-prettier": "^10.1.8"
+  }
+}
