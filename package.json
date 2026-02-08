@@ -12,6 +12,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.28.1",
   "dependencies": {
+    "@fastify/cookie": "^11.0.2",
     "dotenv": "^17.2.4",
     "fastify": "^5.7.4",
     "knex": "^3.1.0",
@@ -20,13 +21,13 @@
   },
   "devDependencies": {
     "@types/node": "^25.2.2",
+    "@types/supertest": "^6.0.3",
     "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
+    "supertest": "^7.2.2",
     "tsx": "^4.21.0",
     "typescript-eslint": "^8.54.0",
-    "supertest": "^7.2.2",
-    "vitest": "^4.0.18",
-    "@types/supertest": "^6.0.3"
+    "vitest": "^4.0.18"
   }
 }
