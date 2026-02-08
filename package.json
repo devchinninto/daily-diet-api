@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tsx --no-warnings --watch src/server.ts",
-    "knex": "node --import tsx ./node_modules/knex/bin/cli.js"
+    "knex": "node --import tsx ./node_modules/knex/bin/cli.js",
+    "test": "vitest",
+    "lint": "eslint . --fix",
+    "check": "prettier --check \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "keywords": [],
   "author": "",

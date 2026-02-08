@@ -1,12 +1,12 @@
-[] Deve ser possível criar um usuário
+[x] Deve ser possível criar um usuário
 
 - POST /users
 
-[] Deve ser possível identificar o usuário entre as requisições
+[x] Deve ser possível identificar o usuário entre as requisições
 
 - cookies
 
-[] Deve ser possível registrar uma refeição feita, com as seguintes informações
+[x] Deve ser possível registrar uma refeição feita, com as seguintes informações
 
 - POST /meals
 
