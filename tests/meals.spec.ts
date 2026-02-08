@@ -13,7 +13,7 @@ describe('Meals routes', () => {
   })
 
   beforeEach(() => {
-    execSync('pnpm run knex migrate:rollback')
+    execSync('pnpm run knex migrate:rollback --all || true')
     execSync('pnpm run knex migrate:latest')
   })
 
@@ -117,5 +117,70 @@ describe('Meals routes', () => {
         is_on_diet: 1
       })
     )
+  })
+
+  it('should be able to delete a meal', async () => {
+    const createNewUserResponse = await request(app.server)
+      .post('/users')
+      .send({
+        first_name: 'New',
+        last_name: 'User',
+        birth_date: '11/01/1999'
+      })
+
+    const cookies = createNewUserResponse.get('Set-Cookie')
+
+    await request(app.server).post('/meals').set('Cookie', cookies).send({
+      title: 'Breakfast',
+      description: 'White bread, eggs and coffee',
+      isOnDiet: 'yes'
+    })
+
+    const listAllMealsResponse = await request(app.server)
+      .get('/meals')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    const mealId = listAllMealsResponse.body.meals[0].id
+
+    await request(app.server)
+      .delete(`/meals/${mealId}`)
+      .set('Cookie', cookies)
+      .expect(200)
+  })
+
+  it('should be able to update a meal', async () => {
+    const createNewUserResponse = await request(app.server)
+      .post('/users')
+      .send({
+        first_name: 'New',
+        last_name: 'User',
+        birth_date: '11/01/1999'
+      })
+
+    const cookies = createNewUserResponse.get('Set-Cookie')
+
+    await request(app.server).post('/meals').set('Cookie', cookies).send({
+      title: 'Breakfast',
+      description: 'White bread, eggs and coffee',
+      isOnDiet: 'yes'
+    })
+
+    const listAllMealsResponse = await request(app.server)
+      .get('/meals')
+      .set('Cookie', cookies)
+      .expect(200)
+
+    const mealId = listAllMealsResponse.body.meals[0].id
+
+    await request(app.server)
+      .put(`/meals/${mealId}`)
+      .set('Cookie', cookies)
+      .send({
+        title: 'Dinner',
+        description: 'Pizza',
+        isOnDiet: 'no'
+      })
+      .expect(200)
   })
 })

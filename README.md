@@ -19,20 +19,20 @@ _As refeições devem ser relacionadas a um usuário (cookies)_
 - Está dentro ou não da dieta
   -> Recebe do front como yes / no, pode ser um enum
 
-[] Deve ser possível editar uma refeição, podendo alterar TODOS os dados acima
+[x] Deve ser possível editar uma refeição, podendo alterar TODOS os dados acima
 
 - PUT /meals/:id
 
-[] Deve ser possível apagar uma refeição
+[x] Deve ser possível apagar uma refeição
 
 - DELETE /meals/:id
 
-[] Deve ser possível listar todas as refeições de um usuário
+[x] Deve ser possível listar todas as refeições de um usuário
 
 - GET /meals
 - cookies to id user
 
-[] Deve ser possível visualizar uma única refeição
+[x] Deve ser possível visualizar uma única refeição
 
 - GET /meals/:id
 

@@ -3,7 +3,7 @@ import { app } from '../src/app'
 import request from 'supertest'
 import { execSync } from 'node:child_process'
 
-describe('Meals routes', () => {
+describe('User routes', () => {
   beforeAll(async () => {
     await app.ready()
   })
@@ -13,7 +13,7 @@ describe('Meals routes', () => {
   })
 
   beforeEach(() => {
-    execSync('pnpm run knex migrate:rollback')
+    execSync('pnpm run knex migrate:rollback --all || true')
     execSync('pnpm run knex migrate:latest')
   })
 
