@@ -5,7 +5,7 @@ REST API for tracking daily meals and diet compliance. Built as a practical chal
 ## Tech Stack
 
 - **Fastify** - Web framework
-- **Knex** - SQL query builder with SQLite
+- **Knex** - SQL query builder (SQLite locally, PostgreSQL in production)
 - **Zod** - Schema validation
 - **Vitest + Supertest** - Automated testing
 
@@ -24,7 +24,7 @@ flowchart TB
     end
 
     subgraph Database
-        DB[(SQLite)]
+        DB[(PostgreSQL)]
         USERS[users]
         MEALS[meals]
     end
@@ -43,27 +43,27 @@ flowchart TB
 
 ### Users
 
-| Method | Route | Description |
-|--------|-------|-------------|
-| POST | `/users` | Create user |
-| GET | `/users` | List all users |
-| PUT | `/users/:id` | Update user |
-| DELETE | `/users/:id` | Delete user |
+| Method | Route        | Description    |
+| ------ | ------------ | -------------- |
+| POST   | `/users`     | Create user    |
+| GET    | `/users`     | List all users |
+| PUT    | `/users/:id` | Update user    |
+| DELETE | `/users/:id` | Delete user    |
 
 > **Note:** GET, PUT, and DELETE user routes were implemented as an extension beyond the original challenge requirements.
 
 ### Meals
 
-| Method | Route | Description |
-|--------|-------|-------------|
-| POST | `/meals` | Create meal |
-| GET | `/meals` | List user's meals |
-| GET | `/meals/:id` | Get single meal |
-| PUT | `/meals/:id` | Update meal |
-| DELETE | `/meals/:id` | Delete meal |
-| GET | `/meals/summary` | Total meals count |
-| GET | `/meals/summary/diet-compliant` | On/off diet breakdown |
-| GET | `/meals/streak` | Best diet streak |
+| Method | Route                           | Description           |
+| ------ | ------------------------------- | --------------------- |
+| POST   | `/meals`                        | Create meal           |
+| GET    | `/meals`                        | List user's meals     |
+| GET    | `/meals/:id`                    | Get single meal       |
+| PUT    | `/meals/:id`                    | Update meal           |
+| DELETE | `/meals/:id`                    | Delete meal           |
+| GET    | `/meals/summary`                | Total meals count     |
+| GET    | `/meals/summary/diet-compliant` | On/off diet breakdown |
+| GET    | `/meals/streak`                 | Best diet streak      |
 
 ## Running Locally
 
@@ -83,4 +83,12 @@ pnpm test
 
 ## Session Management
 
-User identification is handled via cookies. A `sessionId` is automatically generated on user creation and persists for 7 days
+User identification is handled via cookies. A `sessionId` is automatically generated on user creation and persists for 7 days.
+
+## Deployment
+
+The API is deployed on **Render** with PostgreSQL.
+
+**Base URL:** https://daily-diet-api-9rlr.onrender.com
+
+You can test the endpoints using tools like Insomnia or Postman.
