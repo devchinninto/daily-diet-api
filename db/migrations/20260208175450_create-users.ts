@@ -3,7 +3,7 @@ import type { Knex } from 'knex'
 export async function up(knex: Knex): Promise<void> {
   await knex.schema.createTable('users', (table) => {
     ;(table.uuid('id').primary(),
-      table.uuid('session_id').index(),
+      table.uuid('session_id').unique(),
       table.string('first_name').notNullable(),
       table.string('last_name').notNullable(),
       table.date('birth_date').notNullable,
