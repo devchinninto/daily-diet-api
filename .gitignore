@@ -7,3 +7,6 @@ node_modules
 
 # Database
 db/*.db
+
+# Personal study notes
+study-notes.md

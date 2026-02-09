@@ -1,0 +1,380 @@
+type: collection.insomnia.rest/5.0
+schema_version: '5.1'
+name: Daily Diet API - Node.js
+meta:
+  id: wrk_14878b3683204cc9a76fdd5d6952edf5
+  created: 1770574744602
+  modified: 1770574744602
+  description: ''
+collection:
+  - name: Users
+    meta:
+      id: fld_d5ef04e6c3864826a559bcf27695ae79
+      created: 1770577034921
+      modified: 1770580493728
+      sortKey: -1770577034922
+      description: ''
+    children:
+      - url: '{{ _.url }}/{{ _.resource }}'
+        name: Create user
+        meta:
+          id: req_18d08e529e0e4f188dd0c8ca55d71e4e
+          created: 1770577046559
+          modified: 1770594272203
+          isPrivate: false
+          description: ''
+          sortKey: -1770577046559
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"first_name": "New",
+            	"last_name": "User",
+            	"birth_date": "18/04/1998"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}'
+        name: List all users
+        meta:
+          id: req_6d8857ed86f1446fa36bc3eb88816152
+          created: 1770594690588
+          modified: 1770594962687
+          isPrivate: false
+          description: ''
+          sortKey: -1770594690588
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/8f13c26c-566b-4a42-8562-4e32f23da159'
+        name: Update user
+        meta:
+          id: req_35b94e01377543e99d87c546163c688d
+          created: 1770595092174
+          modified: 1770595493272
+          isPrivate: false
+          description: ''
+          sortKey: -1770595092174
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"first_name": "Updated",
+              "last_name": "User",
+              "birth_date": "28/03/1997"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/e24bfa00-989a-42ad-b3af-ef5c5d03bca1'
+        name: Delete user
+        meta:
+          id: req_27268d841b684a16ac8df5368972bdb0
+          created: 1770595623951
+          modified: 1770595688367
+          isPrivate: false
+          description: ''
+          sortKey: -1770595623951
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      resource: users
+  - name: Meals
+    meta:
+      id: fld_7fdb64acc84a420bbc896b607b5ce17c
+      created: 1770579336874
+      modified: 1770580504396
+      sortKey: -1770579336874
+      description: ''
+    children:
+      - url: '{{ _.url }}/{{ _.resource }}'
+        name: Create meal
+        meta:
+          id: req_80e531d9a9004922b53e6e7e513fe55d
+          created: 1770580509085
+          modified: 1770591751086
+          isPrivate: false
+          description: ''
+          sortKey: -1770580509085
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Ref livre",
+            	"description": "Hamburguer",
+            	"isOnDiet": "no"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}'
+        name: Get all meals
+        meta:
+          id: req_f23135f9da804c9cb581e1881e562419
+          created: 1770581713943
+          modified: 1770581726680
+          isPrivate: false
+          description: ''
+          sortKey: -1770581713943
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/c7b52b54-01e7-41ea-b745-9e7f72d8065a'
+        name: Get a single meal by id
+        meta:
+          id: req_c382f6fcbc2d4fe5b7969ea9cb686ec5
+          created: 1770582660894
+          modified: 1770582699140
+          isPrivate: false
+          description: ''
+          sortKey: -1770581111514
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/dcc9a224-2f72-4c16-98a4-8143ff6ecf83'
+        name: Update meal
+        meta:
+          id: req_335b1d2b304944d085b126222c0e2d8c
+          created: 1770588229081
+          modified: 1770594353627
+          isPrivate: false
+          description: ''
+          sortKey: -1770588229081
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"title": "Almoço",
+            	"description": "Arroz branco, feijão, salada e filé de frango",
+            	"isOnDiet": "yes"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/7a5b0be8-d6c1-4760-811c-cc42ae17f2bd'
+        name: Delete a meal
+        meta:
+          id: req_d9f6df83a0b4413891b27c159f50a60f
+          created: 1770588909840
+          modified: 1770592059149
+          isPrivate: false
+          description: ''
+          sortKey: -1770588909840
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/summary'
+        name: List total meals
+        meta:
+          id: req_e0e80ab6fa9d44029af217a6a8cdcc0d
+          created: 1770590142643
+          modified: 1770590161024
+          isPrivate: false
+          description: ''
+          sortKey: -1770590142643
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/summary/diet-compliant'
+        name: List diet-compliant meals
+        meta:
+          id: req_6cc9a278a9e241fcbb86ac340a4417d7
+          created: 1770590347565
+          modified: 1770594363484
+          isPrivate: false
+          description: ''
+          sortKey: -1770589526241.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: '{{ _.url }}/{{ _.resource }}/streak'
+        name: Streak
+        meta:
+          id: req_67f2913f062245bf875407b4c11ef358
+          created: 1770590888122
+          modified: 1770590906555
+          isPrivate: false
+          description: ''
+          sortKey: -1770590888122
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.3.1
+            description: ''
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      resource: meals
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_912d2686b77af4f054e253b9a61d973f52388b90
+    created: 1770574744645
+    modified: 1770582255478
+  cookies:
+    - id: e47a2c22-2f50-4fbe-a3c8-76793bfcb252
+      key: sessionId
+      value: 3cd35104-1f73-4332-b372-a624639efc58
+      domain: localhost
+      path: /
+      secure: false
+      httpOnly: false
+      hostOnly: true
+environments:
+  name: Base Environment
+  meta:
+    id: env_912d2686b77af4f054e253b9a61d973f52388b90
+    created: 1770574744640
+    modified: 1770574848459
+    isPrivate: false
+  data:
+    '': ''
+  subEnvironments:
+    - name: Dev
+      meta:
+        id: env_bd20b73ddd3645deb22f97fc0cee6352
+        created: 1770574853215
+        modified: 1770580474869
+        isPrivate: false
+        sortKey: 1770574853215
+      data:
+        url: http://localhost:3333
+      color: '#4986d4'

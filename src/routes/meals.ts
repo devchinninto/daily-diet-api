@@ -3,8 +3,6 @@ import { knex } from '../knex/knex'
 import z from 'zod'
 import { randomUUID } from 'node:crypto'
 import { checkSessionIdExists } from '../middlewares/check-session-id-exists'
-import { REPL_MODE_SLOPPY } from 'node:repl'
-import { request } from 'node:http'
 
 export async function mealRoutes(app: FastifyInstance) {
   app.get(
@@ -43,6 +41,73 @@ export async function mealRoutes(app: FastifyInstance) {
         .first()
 
       return { meal }
+    }
+  )
+
+  app.get(
+    '/summary',
+    {
+      preHandler: [checkSessionIdExists]
+    },
+    async (request, reply) => {
+      const sessionId = request.cookies.sessionId
+
+      const totalMeals = await knex('meals')
+        .count('*', { as: 'total_meals' })
+        .where({ session_id: sessionId })
+
+      return reply.status(200).send(totalMeals)
+    }
+  )
+
+  app.get(
+    '/summary/diet-compliant',
+    {
+      preHandler: [checkSessionIdExists]
+    },
+    async (request, reply) => {
+      const sessionId = request.cookies.sessionId
+
+      const on_diet = await knex('meals')
+        .count('*', { as: 'total_meals_on_diet' })
+        .where({ session_id: sessionId, is_on_diet: true })
+
+      const off_diet = await knex('meals')
+        .count('*', { as: 'total_meals_off_diet' })
+        .where({ session_id: sessionId, is_on_diet: false })
+
+      return reply.status(200).send({ on_diet, off_diet })
+    }
+  )
+
+  app.get(
+    '/streak',
+    {
+      preHandler: [checkSessionIdExists]
+    },
+    async (request, reply) => {
+      const sessionId = request.cookies.sessionId
+
+      const meals = await knex('meals')
+        .select()
+        .where('session_id', sessionId)
+        .orderBy('created_at')
+
+      let current_streak = 0
+      let best_streak = 0
+
+      for (let i = 0; i < meals.length; i++) {
+        if (meals[i].is_on_diet) {
+          current_streak += 1
+          if (current_streak > best_streak) {
+            best_streak = current_streak
+          }
+        } else {
+          current_streak = 0
+        }
+      }
+
+      return { best_streak, current_streak }
     }
   )
 
